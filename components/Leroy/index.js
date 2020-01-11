@@ -57,7 +57,7 @@ const Leroy = ({ onDirection = () => {} }) => {
         .status-running {
           animation-name: run;
           animation-duration: 0.8s;
-          animtation-timing-function: steps(10);
+          animation-timing-function: steps(10);
           animation-delay: 0s;
           animation-iteration-count: infinite;
           animation-direction: normal;
