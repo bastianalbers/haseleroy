@@ -6,7 +6,11 @@ const Page = ({ children }) => {
     <div className="container">
       <nav>
         <Link href="/"><a>Home</a></Link>
-        <Link href="/start"><a>Start</a></Link>
+        <Link href="/anziehen"><a>A</a></Link>
+        <Link href="/under-construction"><a>A</a></Link>
+        <Link href="/anziehen"><a>A</a></Link>
+        <Link href="/anziehen"><a>A</a></Link>
+        <Link href="/anziehen"><a>A</a></Link>
       </nav>
       <main>
         {children}

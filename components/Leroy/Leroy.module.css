@@ -1,0 +1,30 @@
+.spriteWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 25px;
+  overflow: hidden;
+  background: url('/spritesheet.png') left center;
+  background-size: 200px 100px;
+  display: block;
+}
+.statusStanding {
+  background-position: 0px 0px;
+}
+
+@keyframes run {
+  0% { background-position: 0px -45px; }
+  100% { background-position: -190px -45px; }
+}
+
+.statusRunning {
+  animation-name: run;
+  animation-duration: 0.8s;
+  animation-timing-function: steps(10);
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}

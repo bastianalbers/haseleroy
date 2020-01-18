@@ -5,6 +5,7 @@ import Level from '../../components/Level'
 import Leroy from '../../components/Leroy'
 // import useRaf from '@rooks/use-raf'
 
+import styles from './anziehen.module.css'
 
 const useAudio = url => {
   if (typeof window === 'undefined') return []
@@ -29,8 +30,6 @@ const useAudio = url => {
   return [playing, toggle];
 };
 
-
-
 const Hose = () => {
   return (<div>👖</div>)
 }
@@ -44,7 +43,7 @@ const Mantel = () => {
   return (<div>🧥</div>)
 }
 
-const Start = () => {
+const Anziehen = () => {
   const [leroyDirection, setLeroyDirection] = useState()
   const [leroyPosition, setLeroyPosition] = useState({ x: 1, y: 1 })
   const [, play] = useAudio('/sounds/coin.wav')
@@ -65,8 +64,8 @@ const Start = () => {
     [1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1],
     [1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
     [1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
     [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1],
     [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
@@ -119,11 +118,16 @@ const Start = () => {
     return () => clearInterval(interval)
   }, [leroyDirection, leroyPosition])
 
+  if (collectedItems.length === 4) {
+    if (collectedItems[0].id === 2 && collectedItems[3].id === 3) return <Page><h1>GESCHAFFT!!!</h1></Page>
+    if (collectedItems[0].id !== 2 || collectedItems[3].id !== 3) return <Page><h1>Leider falsche Reihenfolge!!!</h1></Page>
+  }
+
   return (
     <Page>
       <div>
-        <div className="meta">
-          <h1>Start</h1>
+        <div className={styles.meta}>
+          <h1>Anziehen</h1>
           <div>
             Collected Items:
             {collectedItems.map(({ItemComponent}, i) => <ItemComponent key={i} />)}
@@ -139,19 +143,9 @@ const Start = () => {
           </div>
         </Level>
         
-      </div>  
-
-      <style jsx>{`
-        .meta {
-          position: fixed;
-          right: 0;
-          top: 0;
-          width: 200px;
-          z-index: 2;
-        }
-      `}</style>
+      </div>
     </Page>
   )
 }
 
-export default Start
+export default Anziehen
