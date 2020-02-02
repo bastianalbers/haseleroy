@@ -1,7 +1,57 @@
 .meta {
   position: fixed;
   right: 0;
-  top: 0;
+  bottom: 0;
   width: 200px;
   z-index: 2;
+}
+
+.levelWrapper {
+  position: relative;
+  width: 100vmin;
+  overflow: hidden;
+  height: 100vmin;
+}
+
+.level {
+  transition: transform 1s;
+  position: absolute;
+  width: calc(var(--bricksize) * var(--columns));
+  height: calc(var(--bricksize) * var(--rows));
+}
+
+.resetButton {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border: 0;
+  color: white;
+  background: #444999;
+}
+
+.continueButton {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border: 0;
+  color: white;
+  background: #29cf32;
+}
+
+.item {
+  width: var(--bricksize);
+  height: var(--bricksize);
+  line-height: var(--bricksize);
+  font-size: calc(var(--bricksize) - 10px);
+  text-align: center;
+}
+
+@media (min-width: 750px) {
+  .meta {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 200px;
+    z-index: 2;
+  }
 }

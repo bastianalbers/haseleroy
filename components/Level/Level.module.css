@@ -1,0 +1,48 @@
+.levelContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fcf;
+}
+
+.wall {
+  position: absolute;
+  background: #f3f;
+  width: var(--bricksize);
+  height: var(--bricksize);
+}
+.wall-1 {
+  background: #f0f;
+}
+.wall-2 {
+  background: #f1f;
+}
+.wall-3 {
+  background: #f2f;
+}
+.wall-4 {
+  background: #f3f;
+}
+.wall-5 {
+  background: #f4f;
+}
+.wall-6 {
+  background: #f5f;
+}
+.wall-7 {
+  background: #f6f;
+}
+.wall-8 {
+  background: #f7f;
+}
+.wall-9 {
+  background: #f8f;
+}
+
+.itemWrapper {
+  position: absolute;
+  width: var(--bricksize);
+  height: var(--bricksize);
+}
